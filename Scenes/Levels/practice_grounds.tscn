@@ -1,0 +1,370 @@
+[gd_scene format=3 uid="uid://bhnv4vdaol6xs"]
+
+[ext_resource type="Texture2D" uid="uid://bbbar624lbnb3" path="res://Assets/sprites/sprite_map1/Small-8-Direction-Characters_by_AxulArt/Small-8-Direction-Characters_by_AxulArt.png" id="1_05vol"]
+[ext_resource type="Script" uid="uid://1p5oy1evmxpk" path="res://Scripts/Main.gd" id="1_ac56w"]
+[ext_resource type="Script" uid="uid://b5s00re5ehcko" path="res://Scripts/NPC/Player/player.gd" id="1_st2oy"]
+[ext_resource type="MeshLibrary" uid="uid://c8851gakrpl86" path="res://Assets/tiles/MeshLibrary/entrance.tres" id="3_rfu3o"]
+[ext_resource type="Texture2D" uid="uid://c5sx4og2su5sy" path="res://Assets/sprites/items/torch.png" id="3_yuavk"]
+[ext_resource type="Texture2D" uid="uid://bgwr2ga80ce8y" path="res://Assets/sprites/items/torch_ember.png" id="6_wwwid"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05vol"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="Animation" id="Animation_st2oy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprite:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 48, 16, 24)]
+}
+
+[sub_resource type="Animation" id="Animation_rfu3o"]
+resource_name = "down"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 28]
+}
+
+[sub_resource type="Animation" id="Animation_05vol"]
+resource_name = "idle_down"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="Animation" id="Animation_lben5"]
+resource_name = "idle_left"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [22]
+}
+
+[sub_resource type="Animation" id="Animation_ah8ym"]
+resource_name = "idle_right"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_2qhvh"]
+resource_name = "idle_up"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_yuavk"]
+resource_name = "left"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [14, 30]
+}
+
+[sub_resource type="Animation" id="Animation_ac56w"]
+resource_name = "right"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 26]
+}
+
+[sub_resource type="Animation" id="Animation_wwwid"]
+resource_name = "up"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rfu3o"]
+_data = {
+&"RESET": SubResource("Animation_st2oy"),
+&"down": SubResource("Animation_rfu3o"),
+&"idle_down": SubResource("Animation_05vol"),
+&"idle_left": SubResource("Animation_lben5"),
+&"idle_right": SubResource("Animation_ah8ym"),
+&"idle_up": SubResource("Animation_2qhvh"),
+&"left": SubResource("Animation_yuavk"),
+&"right": SubResource("Animation_ac56w"),
+&"up": SubResource("Animation_wwwid")
+}
+
+[sub_resource type="Animation" id="Animation_0yd0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_myu16"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gy060"]
+_data = {
+&"RESET": SubResource("Animation_0yd0b"),
+&"idle": SubResource("Animation_myu16")
+}
+
+[sub_resource type="Sky" id="Sky_st2oy"]
+
+[sub_resource type="Environment" id="Environment_rfu3o"]
+background_mode = 2
+background_energy_multiplier = 2.95
+sky = SubResource("Sky_st2oy")
+ambient_light_color = Color(0.93823665, 0.7983106, 0.86749876, 1)
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 7.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lben5"]
+radius = 0.16165823
+
+[sub_resource type="Animation" id="Animation_gy060"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p28ak"]
+resource_name = "burning"
+length = 1.25
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1, 1.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dlnhg"]
+_data = {
+&"RESET": SubResource("Animation_gy060"),
+&"burning": SubResource("Animation_p28ak")
+}
+
+[node name="Main" type="Node3D" unique_id=1528250795]
+script = ExtResource("1_ac56w")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1162290987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+collision_mask = 30
+script = ExtResource("1_st2oy")
+
+[node name="player_sprite" type="Sprite3D" parent="Player" unique_id=1151135461]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.099999994, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_05vol")
+hframes = 8
+vframes = 12
+region_rect = Rect2(64, 48, 16, 24)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2051181063]
+shape = SubResource("BoxShape3D_05vol")
+
+[node name="animations" type="AnimationPlayer" parent="Player" unique_id=804760532]
+libraries/ = SubResource("AnimationLibrary_rfu3o")
+autoplay = &"idle_down"
+
+[node name="Camera" type="Camera3D" parent="Player" unique_id=1755411002]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.819152, 0, -0.819152, 0.57357645, 0.038600147, 1.8372991, 1.4709177)
+keep_aspect = 0
+projection = 1
+current = true
+fov = 93.3
+size = 3.4090052
+
+[node name="Hand" type="Marker3D" parent="Player" unique_id=733674082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11972892, 0.10482317, -0.0017917156)
+
+[node name="Sprite3D" type="Sprite3D" parent="Player/Hand" unique_id=958905810]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+sorting_offset = 1.0
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_yuavk")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Hand" unique_id=1089355775]
+libraries/ = SubResource("AnimationLibrary_gy060")
+autoplay = &"idle"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2005168861]
+environment = SubResource("Environment_rfu3o")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1485543726]
+
+[node name="GridMap" type="GridMap" parent="Environment" unique_id=1590162185]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh_library = ExtResource("3_rfu3o")
+cell_size = Vector3(1, 1, 1)
+collision_layer = 16
+data = {
+"cells": PackedInt32Array(65530, 4, 3, 65532, 4, 3, 65532, 6, 3, 65530, 6, 3, 65534, 4, 3, 65534, 6, 3, 65528, 6, 3, 65528, 4, 3, 65534, 2, 9, 65532, 2, 9, 65530, 2, 3, 65528, 2, 3, 65533, 2, 9, 65534, 0, 9, 65532, 0, 9, 0, 4, 9, 2, 4, 9, 2, 2, 9, 0, 2, 9, 0, 0, 9, 2, 0, 9)
+}
+
+[node name="Ember" type="Area3D" parent="." unique_id=1377906830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Ember" unique_id=807187955]
+billboard = 1
+texture_filter = 0
+texture = ExtResource("6_wwwid")
+hframes = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ember" unique_id=851976407]
+shape = SubResource("SphereShape3D_lben5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ember" unique_id=374377873]
+libraries/ = SubResource("AnimationLibrary_dlnhg")
+
+[connection signal="animation_finished" from="Ember/AnimationPlayer" to="Player" method="_on_animation_player_animation_finished"]
