@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://nsxcn3521fep"]
+
+[ext_resource type="Texture2D" uid="uid://bgwr2ga80ce8y" path="res://Assets/sprites/items/torch_ember.png" id="1_8w81p"]
+[ext_resource type="Script" uid="uid://c28wdciwywvdu" path="res://Scenes/Items/weapon/embers/ember.gd" id="1_vda78"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lben5"]
+radius = 0.16165823
+
+[sub_resource type="Animation" id="Animation_gy060"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p28ak"]
+resource_name = "burning"
+length = 1.25
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1, 1.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dlnhg"]
+_data = {
+&"RESET": SubResource("Animation_gy060"),
+&"burning": SubResource("Animation_p28ak")
+}
+
+[node name="Ember" type="Area3D" unique_id=345297855]
+script = ExtResource("1_vda78")
+speed = 1.5
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=101248482]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_8w81p")
+hframes = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=957114093]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_lben5")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=2078985275]
+libraries/ = SubResource("AnimationLibrary_dlnhg")
+autoplay = &"burning"
