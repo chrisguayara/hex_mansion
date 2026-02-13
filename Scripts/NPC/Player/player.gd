@@ -11,11 +11,13 @@ var last_anim = "down"
 @onready var hand: Marker3D = $"Hand"
 @onready var torch: Area3D = $"Hand/torch"
 var can_attack = true
-var in_hand = "torch"
-@onready var ember = $"../Ember"
+@onready var in_hand = "torch"
+@export var ember : PackedScene
 var curr_ember = null
 
+var flares = []
 
+@export var shoot_position : Node3D
 
 
 
@@ -41,29 +43,30 @@ func _physics_process(delta: float) -> void:
 		last_anim = state
 	else:
 		state = "idle_" + last_anim
-			
+		
 	if animations.current_animation != state:
 		animations.play(state)
 	if state == "up" || "idle_up":
 		hand.position = Vector3(-0.12,0.105,0)
 	
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if Input.is_action_just_pressed("control") and in_hand == "torch":
+		
+		var new_ember = ember.instantiate()
+		flares.append(new_ember)
+		get_parent().add_child(new_ember)
+		new_ember.position = shoot_position.global_position
+		new_ember.ember_direction = - get_global_transform().basis.z
+
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	if Input.is_action_just_pressed("interact") and can_attack and in_hand == "torch":
-		curr_ember = ember
-		add_child(curr_ember)
-		curr_ember.position = hand.global_position
-		if curr_ember.has_node("AnimationPlayer"):
-			curr_ember.AnimationPlayer.play("burning")
-
-
-
+		pass
+		
 	move_and_slide()
 
 
