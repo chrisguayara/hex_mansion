@@ -366,5 +366,6 @@ shape = SubResource("SphereShape3D_lben5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ember" unique_id=374377873]
 libraries/ = SubResource("AnimationLibrary_dlnhg")
+autoplay = &"RESET"
 
 [connection signal="animation_finished" from="Ember/AnimationPlayer" to="Player" method="_on_animation_player_animation_finished"]
