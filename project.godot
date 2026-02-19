@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=256
 window/size/viewport_height=144
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -53,8 +56,11 @@ control={
 
 [layer_names]
 
+2d_physics/layer_1="Player"
 3d_physics/layer_1="player"
+2d_physics/layer_2="Walls"
 3d_physics/layer_2="ghosts"
+2d_physics/layer_3="Interactables"
 3d_physics/layer_3="items"
 3d_physics/layer_4="hazards"
 3d_physics/layer_5="environmnent"
@@ -67,3 +73,4 @@ control={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true
